@@ -39,6 +39,7 @@ npm run build:prod
 * html-loader
 * sass-loader
 * css-loader
+* style-loader
 * file-loader
 
 ### Plugins
