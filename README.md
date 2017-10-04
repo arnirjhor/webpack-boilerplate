@@ -1,5 +1,5 @@
 # Webpack 3 Boilerplate for beginners
-A basic webpack 3 boilerplate for beginners to start with any project.
+A basic webpack 3 boilerplate for beginners to start with any JS/ES6 based project.
 <br>
 ## Guide
 This basic boilerplate is the final output of this comprehensive write up on Medium. I recommend to read this article to know the insight of how you can configure webpack from scratch.
