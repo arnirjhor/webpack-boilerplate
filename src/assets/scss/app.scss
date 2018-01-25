@@ -1,5 +1,3 @@
 @import '_color';
-body {
-  background: $bgcolor;
-  color: $color;
-}
+@import '_custom';
+@import "~bootstrap/scss/bootstrap";
