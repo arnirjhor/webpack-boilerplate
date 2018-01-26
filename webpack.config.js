@@ -53,9 +53,9 @@ const config = {
         })
       },
       // file-loader(for images)
-      { test: /\.(jpg|png|gif|svg)$/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/media/' } }] },
+      { test: /\.(jpg|png|gif|svg)$/, exclude: /(\/fonts)/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/media/' } }] },
       // file-loader(for fonts)
-      { test: /\.(woff|woff2|eot|ttf|otf)$/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/fonts/' } }] }
+      { test: /\.(woff|woff2|eot|ttf|otf|svg)$/, exclude: path.resolve(__dirname, 'assets', 'media'), use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/fonts/' } }] }
     ]
   },
 
