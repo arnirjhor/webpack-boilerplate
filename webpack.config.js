@@ -1,10 +1,9 @@
-const path = require('path'),
-      webpack = require('webpack'),
-      CleanWebpackPlugin = require('clean-webpack-plugin'),
-      HtmlWebpackPlugin = require('html-webpack-plugin'),
-      ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/app.css' });
+const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/app.css' })
 
 const config = {
 
@@ -26,7 +25,9 @@ const config = {
     rules: [
 
       // babel-loader with 'env' preset
-      { test: /\.js$/, include: /src/, exclude: /node_modules/, use: { loader: "babel-loader", options: { presets: ['env'] } } },
+      {
+        test: /\.js$/, include: /src/, exclude: /node_modules/, use: { loader: 'babel-loader', options: { presets: ['env'] } }
+      },
       // html-loader
       { test: /\.html$/, use: ['html-loader'] },
       // sass-loader with sourceMap activated
@@ -52,10 +53,9 @@ const config = {
         })
       },
       // file-loader(for images)
-      { test: /\.(jpg|png|gif|svg)$/, use: [ { loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/media/' } } ] },
+      { test: /\.(jpg|png|gif|svg)$/, exclude: /(\/fonts)/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/media/' } }] },
       // file-loader(for fonts)
-      { test: /\.(woff|woff2|eot|ttf|otf)$/, use: ['file-loader'] }
-
+      { test: /\.(woff|woff2|eot|ttf|otf|svg)$/, exclude: path.resolve(__dirname, 'assets', 'media'), use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/fonts/' } }] }
     ]
   },
 
@@ -71,7 +71,7 @@ const config = {
 
   devServer: {
     // static files served from here
-    contentBase: path.resolve(__dirname, "./dist/assets/media"),
+    contentBase: path.resolve(__dirname, './dist/assets/media'),
     compress: true,
     // open app in localhost:2000
     port: 2000,
@@ -81,6 +81,6 @@ const config = {
 
   devtool: 'inline-source-map'
 
-};
+}
 
-module.exports = config;
+module.exports = config
